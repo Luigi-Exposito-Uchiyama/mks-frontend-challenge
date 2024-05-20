@@ -1,19 +1,17 @@
 "use client";
-
 import { createContext, useContext, ReactNode } from "react";
-
-import { ApiProdutos } from "./interface";
+import { ApiProdutos } from "../../interface/page";
 import { useQuery } from "@tanstack/react-query";
 
 import axios from "axios";
 
-export type ContextoAPI = {
+export type ProductsDataContextProps = {
   data?: ApiProdutos;
   error: Error | null;
 };
 
-export const Api = createContext(
-  {} as ContextoAPI
+export const ProductsDataContext = createContext(
+  {} as ProductsDataContextProps
 );
 
 export const ProductsDataProvider = ({ children }: { children: ReactNode }) => {
@@ -25,19 +23,19 @@ export const ProductsDataProvider = ({ children }: { children: ReactNode }) => {
           "https://mks-frontend-challenge-04811e8151e6.herokuapp.com/api/v1/products?page=1&rows=8&sortBy=id&orderBy=DESC"
         )
         .then((res) => res.data),
-    retry: 1,
+    retry: 1, 
   });
 
   return (
-    <Api.Provider
+    <ProductsDataContext.Provider
       value={{
         data,
         error
       }}
     >
       {children}
-    </Api.Provider>
+    </ProductsDataContext.Provider>
   );
 };
 
-export const useApi = () => useContext(Api);
+export const useApi = () => useContext(ProductsDataContext);

@@ -1,9 +1,9 @@
 export interface ApiProdutos {
   count: number;
-  products: Produto[];
+  products: Produtos[];
 }
 
-export interface Produto {
+export interface Produtos {
   id: number;
   name: string;
   brand: string;

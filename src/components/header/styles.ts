@@ -1,37 +1,39 @@
 import styled from "styled-components";
 
 export const Container = styled.header`
-  background-color: #0F52BA;
+  width: 100%;
+  height: 100px;
+  background-color: ${(props) => props.theme.colors?.blue01};
+  padding: 0 88px 0 65px;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  width: 100%;
-  height: 100px;
-  padding: 0 88px 0 65px;
 `;
 
 export const Logo = styled.div`
   display: flex;
   align-items: baseline;
-  gap: 5px;
+  gap: 8px;
 `;
 
 export const Titulo = styled.h1`
-  color: #fff;
+  color: ${(props) => props.theme.colors?.white};
   font-size: 2.5rem;
-  font-weight: bold;
+  font-weight: 600;
+  line-height: 1.1875rem;
 `;
 
-export const SubTitulo = styled.h1`
-  color: #fff;
+export const SubTitulo = styled.h3`
+  color: ${(props) => props.theme.colors?.white};
   font-size: 1.25rem;
-  font-weight: normal;
+  font-weight: 300;
+  line-height: 1.1875rem;
 `;
 
 export const Shopping = styled.div`
-  background-color: #fff;
   width: 90px;
   height: 45px;
+  background-color: ${(props) => props.theme.colors?.white};
   border-radius: 8px;
   display: flex;
   justify-content: center;
@@ -40,8 +42,8 @@ export const Shopping = styled.div`
   cursor: pointer;
 `;
 
-export const QuantidadeDeProdutos = styled.p`
-  color: #fff;
+export const Quantidade = styled.p`
+  color: ${(props) => props.theme.colors?.black};
   font-size: 1.125rem;
-  font-weight: bold;
+  font-weight: 700;
 `;
